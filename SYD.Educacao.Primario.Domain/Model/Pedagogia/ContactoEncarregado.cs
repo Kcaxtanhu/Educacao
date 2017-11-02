@@ -7,8 +7,17 @@ namespace SYD.Educacao.Primario.Domain.Model.Pedagogia
 {
     public class ContactoEncarregado : Contacto
     {
-        public Guid Id { get; set; }
+        #region Propriedades
         public Guid EncarregadoId { get; set; }
         public Encarregado Encarregado { get; set; }
+        #endregion
+
+        #region Construtores
+        private ContactoEncarregado(Encarregado encarregado, TipoContacto tipoContacto, string nConctacto)
+            :base(tipoContacto, nConctacto)
+        {
+            Encarregado = encarregado;
+        }
+        #endregion
     }
 }

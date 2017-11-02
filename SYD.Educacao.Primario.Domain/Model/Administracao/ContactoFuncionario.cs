@@ -7,8 +7,21 @@ namespace SYD.Educacao.Primario.Domain.Model.Administracao
 {
     public class ContactoFuncionario : Contacto
     {
-        public Guid Id { get; set; }
-        public Guid FuncionarioId { get; set; }
-        public Funcionario Funcionario { get; set; }
+        #region Propriedades
+        public Guid FuncionarioId { get; private set; }
+        public Funcionario Funcionario { get; private set; }
+        #endregion
+
+        #region Construtores
+        private ContactoFuncionario()
+        {
+        }
+
+        public ContactoFuncionario(Funcionario funcionario, TipoContacto tipoContacto, string nContacto)
+            :base(tipoContacto, nContacto)
+        {
+            Funcionario = funcionario;
+        }
+        #endregion
     }
 }
